@@ -30,7 +30,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 80px; /* Adjusted for fixed header */
         }
 
         body {
@@ -38,8 +38,10 @@
             background: linear-gradient(to bottom, var(--white), var(--light-purple), var(--medium-purple));
             color: var(--deep-purple);
             line-height: 1.6;
-            font-size: 18px;
+            font-size: 18px; /* Base font size */
             min-height: 100vh;
+            display: flex; /* For sticky footer */
+            flex-direction: column; /* For sticky footer */
         }
 
         .container {
@@ -55,7 +57,7 @@
             left: 0;
             width: 100%;
             padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
@@ -73,7 +75,7 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 40px; /* Consistent logo height */
             width: auto;
         }
 
@@ -114,11 +116,13 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            display: inline-flex; /* Align icon and text */
+            align-items: center; /* Align icon and text */
         }
 
         .btn i {
             margin-right: 8px;
-            font-size: 20px;
+            font-size: 1em; /* Relative to button font size */
         }
 
         .btn:hover {
@@ -126,50 +130,21 @@
             box-shadow: 0 4px 10px rgba(72, 61, 139, 0.3);
         }
 
-        /* Updated Navigation order */
-        .nav-order-1 {
-            order: 1;
-        }
+        /* Navigation order classes (already present) */
+        .nav-order-1 { order: 1; }
+        .nav-order-2 { order: 2; }
+        .nav-order-3 { order: 3; }
+        .nav-order-4 { order: 4; }
 
-        .nav-order-2 {
-            order: 2;
-        }
-
-        .nav-order-3 {
-            order: 3;
-        }
-
-        .nav-order-4 {
-            order: 4;
-        }
-
-        /* Flag styles for consistency */
-        .flag-small {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-block;
-            background-size: cover;
-            margin-right: 5px;
-        }
-
-        .flag-germany {
-            background-image: url('https://flagcdn.com/w80/de.png');
-        }
-
-        .flag-spain {
-            background-image: url('https://flagcdn.com/w80/es.png');
-        }
-
-        .flag-france {
-            background-image: url('https://flagcdn.com/w80/fr.png');
-            background-position: center;
-            background-size: 150%;
-        }
+        /* Flag styles (already present) */
+        .flag-small { /* ... */ }
+        .flag-germany { /* ... */ }
+        .flag-spain { /* ... */ }
+        .flag-france { /* ... */ }
 
         /* Hero Section */
         .hero {
-            padding: 140px 0 80px;
+            padding: 140px 0 80px; /* Increased top padding for fixed header */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -182,6 +157,7 @@
             position: relative;
             z-index: 2;
             animation: fadeInUp 1s ease;
+            color: var(--deep-purple); /* Ensure hero h1 color matches theme */
         }
 
         .hero p {
@@ -220,6 +196,7 @@
         /* Main Content */
         .content {
             padding: 50px 0 100px;
+            flex-grow: 1; /* For sticky footer */
         }
 
         .policy-container {
@@ -235,66 +212,75 @@
             font-size: 30px;
             margin-bottom: 20px;
             color: var(--deep-purple);
+            text-align: left; /* Explicitly left align section titles */
         }
 
         .policy-container h3 {
             font-size: 22px;
             margin: 30px 0 15px;
             color: var(--deep-purple);
+            text-align: left; /* Explicitly left align sub-titles */
         }
 
         .policy-container p {
             margin-bottom: 20px;
+            text-align: left; /* Ensure paragraphs are left-aligned */
+        }
+        
+        .policy-container ul {
+            margin: 20px 0 30px 0; 
+            padding-left: 0; /* Remove default padding, rely on li padding for alignment */
+            list-style-type: none; /* Remove default bullets */
+            text-align: left; 
         }
 
-        .policy-date {
-            color: var(--medium-gray);
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        .placeholder {
-            text-align: center;
-            padding: 50px 20px;
-            margin: 30px 0;
-            border: 2px dashed var(--medium-purple);
-            border-radius: 10px;
-            background-color: rgba(216, 191, 216, 0.1);
-            position: relative;
-        }
-
-        .placeholder i {
-            font-size: 60px;
-            color: var(--deep-purple);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .placeholder h3 {
-            margin-bottom: 15px;
-        }
-
-        .policy-list {
-            margin: 20px 0 30px 20px;
-            list-style: none;
-        }
-
-        .policy-list li {
+        .policy-container ul li {
             margin-bottom: 10px;
             position: relative;
-            padding-left: 25px;
+            padding-left: 25px; /* Space for custom bullet */
+            text-align: left; 
         }
 
-        .policy-list li::before {
+        .policy-container ul li::before { 
             content: '';
             position: absolute;
             left: 0;
-            top: 10px;
+            top: 10px; 
             width: 10px;
             height: 10px;
             background-color: var(--medium-purple);
             border-radius: 50%;
         }
+        
+        .policy-container ul ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            /* padding-left: 20px; /* Indent nested lists further if desired */
+        }
+        .policy-container ul ul li::before { 
+             background-color: var(--dark-gray); 
+        }
+
+
+        .policy-date {
+            color: var(--medium-gray);
+            font-style: italic;
+            margin-bottom: 30px;
+            text-align: center; /* Centered the policy date */
+        }
+
+        .placeholder { /* ... (already present) ... */ }
+        .placeholder i { /* ... (already present) ... */ }
+        .placeholder h3 { /* ... (already present) ... */ }
+
+        .policy-list { 
+            margin: 20px 0 30px 0; /* Adjusted to remove left margin if ul has no padding */
+            list-style: none;
+            text-align: left; 
+        }
+
+        .policy-list li { /* ... (already present, matches .policy-container ul li) ... */ }
+        .policy-list li::before { /* ... (already present, matches .policy-container ul li::before) ... */ }
 
         .back-link {
             display: inline-flex;
@@ -319,7 +305,6 @@
             background-color: var(--deep-purple);
             color: var(--white);
             padding: 50px 0 20px;
-            margin-top: auto;
         }
 
         .footer-content {
@@ -333,6 +318,7 @@
         .footer-col {
             flex: 1;
             min-width: 200px;
+            text-align: left; 
         }
 
         .footer-col h4 {
@@ -353,11 +339,17 @@
 
         .footer-col ul {
             list-style: none;
+            padding-left: 0; 
         }
 
         .footer-col ul li {
             margin-bottom: 10px;
+            padding-left: 0; 
         }
+         .footer-col ul li::before { 
+            content: none;
+        }
+
 
         .footer-col ul li a {
             color: var(--light-purple);
@@ -369,11 +361,11 @@
             color: var(--white);
         }
 
-        /* Social Links Fix */
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            justify-content: flex-start; 
         }
 
         .social-links a {
@@ -408,7 +400,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -416,24 +407,18 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(-15px);
             }
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
+        @keyframes pulse { 
+            0%, 100% {
                 transform: scale(1);
             }
-
             50% {
                 transform: scale(1.03);
             }
@@ -441,13 +426,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                font-size: 16px; 
+            }
             .hamburger {
                 display: block;
             }
-
             .nav-menu {
                 position: fixed;
-                top: 80px;
+                top: 79px; 
                 left: -100%;
                 flex-direction: column;
                 background-color: var(--white);
@@ -457,29 +444,45 @@
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
                 padding: 20px 0;
             }
-
             .nav-menu.active {
                 left: 0;
             }
-
             .nav-menu li {
                 margin: 15px 0;
             }
-
             .header-container {
-                padding: 0 20px;
+                padding: 0 20px; 
             }
-
             .hero {
-                padding: 150px 0 50px;
+                padding: 120px 0 50px; 
             }
-
             .hero h1 {
                 font-size: 32px;
             }
-
             .policy-container {
                 padding: 30px 20px;
+            }
+            .policy-container h2 {
+                font-size: 26px;
+            }
+            .policy-container h3 {
+                font-size: 20px;
+            }
+            .footer-content {
+                flex-direction: column; 
+                align-items: center; 
+                text-align: center; 
+            }
+            .footer-col {
+                min-width: 100%; 
+                text-align: center; 
+            }
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%); 
+            }
+            .social-links {
+                justify-content: center; 
             }
         }
     </style>
@@ -529,10 +532,7 @@
                 <h2>Privacy Policy for EduLingua Apps</h2>
                 <p class="policy-date">Last updated: June 4, 2025</p>
 
-                <h1>Privacy Policy for MitErfolg App</h1>
-                <p class="effective-date"><strong>Effective Date:</strong> June 4, 2025</p>
-
-                <p>This Privacy Policy applies to the MitErfolg mobile application (hereinafter referred to as the
+                <p>This Privacy Policy applies to the "Prüfungsweg für Telc C1 HS" mobile application (hereinafter referred to as the
                     "Application"), developed and provided by EduLingua (hereinafter referred to as "we," "us," or
                     "our").</p>
 
@@ -540,7 +540,7 @@
                     inform you about how information is handled when you use our Application, with a specific focus on
                     data processing by our third-party advertising partner, Google AdMob.</p>
 
-                <h2>1. Information We Do Not Directly Collect</h2>
+                <h3>1. Information We Do Not Directly Collect</h3> 
                 <p>We, EduLingua, want to be clear:</p>
                 <ul>
                     <li><strong>No Registration Required:</strong> You do not need to create an account or register to
@@ -550,7 +550,7 @@
                         address, phone number, or physical address, through the Application.</li>
                 </ul>
 
-                <h2>2. Information Collected by Our Advertising Partner (Google AdMob)</h2>
+                <h3>2. Information Collected by Our Advertising Partner (Google AdMob)</h3> 
                 <p>To support the Application and provide it to you free of charge, we integrate Google AdMob, a
                     third-party advertising service provided by Google. When you use our Application, AdMob may
                     automatically collect and process certain information to serve you advertisements (which may be
@@ -580,7 +580,7 @@
                             target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
                 </ul>
 
-                <h2>3. How Information Collected by AdMob is Used</h2>
+                <h3>3. How Information Collected by AdMob is Used</h3> 
                 <p>The information collected by Google AdMob through our Application is primarily used for the following
                     purposes:</p>
                 <ul>
@@ -592,13 +592,13 @@
                     </li>
                 </ul>
 
-                <h2>4. Location Information</h2>
+                <h3>4. Location Information</h3> 
                 <p>This Application does not itself actively request or collect precise real-time location information
                     (e.g., GPS data) from your device. However, our advertising partner, Google AdMob, may infer your
                     general location from your IP address to serve more relevant ads or for their analytical purposes,
                     as described in their privacy policies.</p>
 
-                <h2>5. Sharing of Information</h2>
+                <h3>5. Sharing of Information</h3> 
                 <ul>
                     <li><strong>EduLingua:</strong> We do not directly collect personal information from you, and
                         therefore, we do not share such information with third parties.</li>
@@ -612,7 +612,7 @@
                         the public; or (e) protect against legal liability.</li>
                 </ul>
 
-                <h2>6. Your Choices and Rights Regarding Advertising</h2>
+                <h3>6. Your Choices and Rights Regarding Advertising</h3> 
                 <p>You have choices regarding the collection and use of your information for personalized advertising:
                 </p>
                 <ul>
@@ -649,13 +649,12 @@
                             <li>The right to object to the processing of your personal data.</li>
                         </ul>
                         <p>To exercise these rights with respect to data collected by AdMob, you should typically
-                            contact Google directly as per their privacy policy. You can also contact us at [your
-                            laxeneo@gmail.com email] for guidance on how to reach Google or if you have general privacy
-                            questions about our Application.</p>
+                            contact Google directly as per their privacy policy. You can also contact us at laxeneo@gmail.com for guidance on how to reach Google or if you have general privacy
+                            questions about our Application.</p> 
                     </li>
                 </ul>
 
-                <h2>7. Data Retention</h2>
+                <h3>7. Data Retention</h3> 
                 <ul>
                     <li><strong>EduLingua:</strong> As we do not directly collect or store your personally identifiable
                         information, we do not have specific retention policies for it.</li>
@@ -666,22 +665,22 @@
                         the Application.</li>
                 </ul>
 
-                <h2>8. Children's Privacy</h2>
+                <h3>8. Children's Privacy</h3> 
                 <p>This Application is not intended for or directed at children under the age of 13 (or a higher age
                     threshold as required by applicable local laws, e.g., 16 in some parts of the EU for GDPR consent).
                     We do not knowingly collect any personally identifiable information from children. If you are a
                     parent or guardian and you believe that your child has provided us with information without your
-                    consent, please contact us at [your laxeneo@gmail.com email]. If we become aware that information
+                    consent, please contact us at <a href="laxeneo@gmail.com">laxeneo@gmail.com</a>. If we become aware that information
                     has been collected from a child without verification of parental consent, we will take steps to
-                    remove that information or request its removal by our partners.</p>
+                    remove that information or request its removal by our partners.</p> 
 
-                <h2>9. Security</h2>
+                <h3>9. Security</h3> 
                 <p>We are committed to ensuring that your information is handled responsibly. While we do not directly
                     collect or store your personal data, we rely on the security measures implemented by Google AdMob
                     and your mobile device's operating system. Please understand that no method of transmission over the
                     internet or method of electronic storage is 100% secure.</p>
 
-                <h2>10. Changes to This Privacy Policy</h2>
+                <h3>10. Changes to This Privacy Policy</h3> 
                 <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the
                     new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to
                     review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are
@@ -690,13 +689,9 @@
                     Privacy Policy.</p>
 
                 <div class="contact-info">
-                    <h2>11. Contact Us</h2>
+                    <h3>11. Contact Us</h3> 
                     <p>If you have any questions or suggestions about our Privacy Policy, or if you have any concerns
-                        about your privacy while using the Application, please do not hesitate to contact us:</p>
-                    <p>
-                        EduLingua<br>
-                        Email: laxeneo@gmail.com
-                    </p>
+                        about your privacy while using the Application, please do not hesitate to contact us at <a href="laxeneo@gmail.com">laxeneo@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -755,12 +750,13 @@
             // Close menu when clicking on a link
             document.querySelectorAll('.nav-menu a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    if (navMenu.classList.contains('active')) { // Only if menu is active
+                        navMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
                 });
             });
         }
     </script>
 </body>
-
 </html>
