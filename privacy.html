@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - EduLingua</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --deep-purple: #483D8B;
@@ -19,18 +21,18 @@
             --pastel-pink: #FFB6C1;
             --pastel-purple: #D8BFD8;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
+
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to bottom, var(--white), var(--light-purple), var(--medium-purple));
@@ -39,13 +41,13 @@
             font-size: 18px;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header & Navigation */
         header {
             position: fixed;
@@ -57,44 +59,44 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
         }
-        
+
         .logo img {
             height: 40px;
             width: auto;
         }
-        
+
         .nav-menu {
             display: flex;
             list-style: none;
         }
-        
+
         .nav-menu li {
             margin-left: 30px;
         }
-        
+
         .nav-menu li a {
             text-decoration: none;
             color: var(--dark-gray);
             font-weight: 600;
             transition: color 0.3s;
         }
-        
+
         .nav-menu li a:hover {
             color: var(--deep-purple);
         }
-        
+
         .hamburger {
             display: none;
             cursor: pointer;
@@ -103,7 +105,7 @@
             font-size: 24px;
             color: var(--deep-purple);
         }
-        
+
         .btn {
             background-color: var(--deep-purple);
             color: var(--white);
@@ -113,23 +115,34 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        
+
         .btn i {
             margin-right: 8px;
             font-size: 20px;
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(72, 61, 139, 0.3);
         }
-        
+
         /* Updated Navigation order */
-        .nav-order-1 { order: 1; }
-        .nav-order-2 { order: 2; }
-        .nav-order-3 { order: 3; }
-        .nav-order-4 { order: 4; }
-        
+        .nav-order-1 {
+            order: 1;
+        }
+
+        .nav-order-2 {
+            order: 2;
+        }
+
+        .nav-order-3 {
+            order: 3;
+        }
+
+        .nav-order-4 {
+            order: 4;
+        }
+
         /* Flag styles for consistency */
         .flag-small {
             width: 24px;
@@ -139,21 +152,21 @@
             background-size: cover;
             margin-right: 5px;
         }
-        
+
         .flag-germany {
             background-image: url('https://flagcdn.com/w80/de.png');
         }
-        
+
         .flag-spain {
             background-image: url('https://flagcdn.com/w80/es.png');
         }
-        
+
         .flag-france {
             background-image: url('https://flagcdn.com/w80/fr.png');
             background-position: center;
             background-size: 150%;
         }
-        
+
         /* Hero Section */
         .hero {
             padding: 140px 0 80px;
@@ -161,7 +174,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero h1 {
             font-size: 48px;
             font-weight: 700;
@@ -170,7 +183,7 @@
             z-index: 2;
             animation: fadeInUp 1s ease;
         }
-        
+
         .hero p {
             color: var(--medium-gray);
             max-width: 600px;
@@ -179,13 +192,13 @@
             z-index: 2;
             animation: fadeInUp 1s ease 0.2s backwards;
         }
-        
+
         .shape {
             position: absolute;
             border-radius: 50%;
             opacity: 0.6;
         }
-        
+
         .shape-1 {
             width: 300px;
             height: 300px;
@@ -194,7 +207,7 @@
             right: -100px;
             animation: float 6s infinite ease-in-out;
         }
-        
+
         .shape-2 {
             width: 200px;
             height: 200px;
@@ -203,12 +216,12 @@
             left: -50px;
             animation: float 8s infinite ease-in-out reverse;
         }
-        
+
         /* Main Content */
         .content {
             padding: 50px 0 100px;
         }
-        
+
         .policy-container {
             background-color: var(--white);
             border-radius: 20px;
@@ -217,29 +230,29 @@
             position: relative;
             animation: fadeInUp 1s ease;
         }
-        
+
         .policy-container h2 {
             font-size: 30px;
             margin-bottom: 20px;
             color: var(--deep-purple);
         }
-        
+
         .policy-container h3 {
             font-size: 22px;
             margin: 30px 0 15px;
             color: var(--deep-purple);
         }
-        
+
         .policy-container p {
             margin-bottom: 20px;
         }
-        
+
         .policy-date {
             color: var(--medium-gray);
             font-style: italic;
             margin-bottom: 30px;
         }
-        
+
         .placeholder {
             text-align: center;
             padding: 50px 20px;
@@ -249,29 +262,29 @@
             background-color: rgba(216, 191, 216, 0.1);
             position: relative;
         }
-        
+
         .placeholder i {
             font-size: 60px;
             color: var(--deep-purple);
             margin-bottom: 20px;
             display: block;
         }
-        
+
         .placeholder h3 {
             margin-bottom: 15px;
         }
-        
+
         .policy-list {
             margin: 20px 0 30px 20px;
             list-style: none;
         }
-        
+
         .policy-list li {
             margin-bottom: 10px;
             position: relative;
             padding-left: 25px;
         }
-        
+
         .policy-list li::before {
             content: '';
             position: absolute;
@@ -282,7 +295,7 @@
             background-color: var(--medium-purple);
             border-radius: 50%;
         }
-        
+
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -292,15 +305,15 @@
             text-decoration: none;
             transition: all 0.3s;
         }
-        
+
         .back-link i {
             margin-right: 8px;
         }
-        
+
         .back-link:hover {
             transform: translateX(-5px);
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--deep-purple);
@@ -308,7 +321,7 @@
             padding: 50px 0 20px;
             margin-top: auto;
         }
-        
+
         .footer-content {
             display: flex;
             flex-wrap: wrap;
@@ -316,18 +329,18 @@
             gap: 50px;
             margin-bottom: 30px;
         }
-        
+
         .footer-col {
             flex: 1;
             min-width: 200px;
         }
-        
+
         .footer-col h4 {
             font-size: 20px;
             margin-bottom: 20px;
             position: relative;
         }
-        
+
         .footer-col h4::after {
             content: '';
             position: absolute;
@@ -337,32 +350,32 @@
             height: 2px;
             background-color: var(--medium-purple);
         }
-        
+
         .footer-col ul {
             list-style: none;
         }
-        
+
         .footer-col ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-col ul li a {
             color: var(--light-purple);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-col ul li a:hover {
             color: var(--white);
         }
-        
+
         /* Social Links Fix */
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-links a {
             width: 40px;
             height: 40px;
@@ -375,13 +388,13 @@
             text-decoration: none;
             transition: all 0.3s;
         }
-        
+
         .social-links a:hover {
             background-color: var(--white);
             color: var(--deep-purple);
             transform: translateY(-5px);
         }
-        
+
         .footer-bottom {
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -395,6 +408,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -402,29 +416,35 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-15px);
             }
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.03);
             }
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
-            
+
             .nav-menu {
                 position: fixed;
                 top: 80px;
@@ -437,19 +457,19 @@
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
                 padding: 20px 0;
             }
-            
+
             .nav-menu.active {
                 left: 0;
             }
-            
+
             .nav-menu li {
                 margin: 15px 0;
             }
-            
+
             .header-container {
                 padding: 0 20px;
             }
-            
+
             .hero {
                 padding: 150px 0 50px;
             }
@@ -457,13 +477,14 @@
             .hero h1 {
                 font-size: 32px;
             }
-            
+
             .policy-container {
                 padding: 30px 20px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -506,63 +527,178 @@
                     <i class="fas fa-arrow-left"></i> Back to Home
                 </a>
                 <h2>Privacy Policy for EduLingua Apps</h2>
-                <p class="policy-date">Last updated: April 14, 2025</p>
-                
-                <p>This privacy policy is applicable to the MitErfolg app (hereinafter referred to as "Application") for mobile devices, which was developed by EduLingua (hereinafter referred to as "Service Provider") as a an Ad Supported service. This service is provided "AS IS".</p>
-                
-                <h3>What information does the Application obtain and how is it used?</h3>
-                <h4>User Provided Information</h4>
-                <p>The Application acquires the information you supply when you download and register the Application. Registration with the Service Provider is not mandatory. However, bear in mind that you might not be able to utilize some of the features offered by the Application unless you register with them.</p>
-                
-                <p>The Service Provider may also use the information you provided them to contact you from time to time to provide you with important information, required notices and marketing promotions.</p>
-                
-                <h4>Automatically Collected Information</h4>
-                <p>In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile devices unique device ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browsers you use, and information about the way you use the Application.</p>
-                
-                <h3>Does the Application collect precise real time location information of the device?</h3>
-                <p>This Application does not gather precise information about the location of your mobile device.</p>
-                
-                <h3>Do third parties see and/or have access to information obtained by the Application?</h3>
-                <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
-                
-                <p>Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:</p>
-                <ul class="policy-list">
-                    <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
-                    <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">AdMob</a></li>
+                <p class="policy-date">Last updated: June 4, 2025</p>
+
+                <h1>Privacy Policy for MitErfolg App</h1>
+                <p class="effective-date"><strong>Effective Date:</strong> June 4, 2025</p>
+
+                <p>This Privacy Policy applies to the MitErfolg mobile application (hereinafter referred to as the
+                    "Application"), developed and provided by EduLingua (hereinafter referred to as "we," "us," or
+                    "our").</p>
+
+                <p>This Application is offered as an ad-supported service, free of charge. This policy is intended to
+                    inform you about how information is handled when you use our Application, with a specific focus on
+                    data processing by our third-party advertising partner, Google AdMob.</p>
+
+                <h2>1. Information We Do Not Directly Collect</h2>
+                <p>We, EduLingua, want to be clear:</p>
+                <ul>
+                    <li><strong>No Registration Required:</strong> You do not need to create an account or register to
+                        use our Application.</li>
+                    <li><strong>No Direct Collection of Personal Information:</strong> We do not directly collect,
+                        store, or process any personally identifiable information from you, such as your name, email
+                        address, phone number, or physical address, through the Application.</li>
                 </ul>
-                
-                <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
-                <ul class="policy-list">
-                    <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-                    <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-                    <li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
+
+                <h2>2. Information Collected by Our Advertising Partner (Google AdMob)</h2>
+                <p>To support the Application and provide it to you free of charge, we integrate Google AdMob, a
+                    third-party advertising service provided by Google. When you use our Application, AdMob may
+                    automatically collect and process certain information to serve you advertisements (which may be
+                    personalized or non-personalized).</p>
+                <p>The types of information AdMob may collect include, but are not limited to:</p>
+                <ul>
+                    <li><strong>Device Information:</strong> Type of mobile device, operating system version, mobile
+                        network information.</li>
+                    <li><strong>Advertising Identifiers:</strong> Your device's unique advertising ID (e.g., Google
+                        Advertising ID on Android, IDFA on iOS).</li>
+                    <li><strong>IP Address:</strong> Which can be used to infer your general geographic location.</li>
+                    <li><strong>Ad Interaction Data:</strong> Information about the ads displayed to you and your
+                        interaction with them (e.g., clicks, views).</li>
+                    <li><strong>Application Usage Data:</strong> Information about how you interact with this
+                        Application (e.g., features used, session duration), which helps in serving relevant ads.</li>
                 </ul>
-                
-                <h3>What are my opt-out rights?</h3>
-                <p>You can halt all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
-                
-                <h3>Data Retention Policy, Managing Your Information</h3>
-                <p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. The Service Provider will retain Automatically Collected information for up to 24 months and thereafter may store it in aggregate. If you'd like the Service Provider to delete User Provided Data that you have provided via the Application, please contact them at <a href="mailto:laxeneo@gmail.com">laxeneo@gmail.com</a> and we will respond in a reasonable time. Please note that some or all of the User Provided Data may be required in order for the Application to function properly.</p>
-                
-                <h3>Children</h3>
-                <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
-                
-                <p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (<a href="mailto:laxeneo@gmail.com">laxeneo@gmail.com</a>) so that they will be able to take the necessary actions.</p>
-                
-                <h3>Security</h3>
-                <p>The Service Provider are concerned about safeguarding the confidentiality of your information. The Service Provider provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve their Application. Please be aware that, although we endeavor provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.</p>
-                
-                <h3>Changes</h3>
-                <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-                
-                <p>This privacy policy is effective as of 2025-04-14</p>
-                
-                <h3>Your Consent</h3>
-                <p>By using the Application, you are giving your consent to the Service Provider processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing," means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information.</p>
-                
-                <h3>Contact us</h3>
-                <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:laxeneo@gmail.com">laxeneo@gmail.com</a>.</p>
-                            </div>
+                <p>We, EduLingua, do not have direct access to or control over the specific individual data points
+                    collected by AdMob beyond aggregated or anonymized reports that may be available through AdMob's
+                    dashboard. AdMob processes this data in accordance with its own privacy policies.</p>
+                <p>For detailed information on how Google AdMob collects, uses, and protects your information, please
+                    review Google's policies:</p>
+                <ul>
+                    <li><strong>How Google uses information from sites or apps that use our services:</strong> <a
+                            href="https://policies.google.com/technologies/partner-sites" target="_blank"
+                            rel="noopener noreferrer">https://policies.google.com/technologies/partner-sites</a></li>
+                    <li><strong>Google's main Privacy Policy:</strong> <a href="https://policies.google.com/privacy"
+                            target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
+                </ul>
+
+                <h2>3. How Information Collected by AdMob is Used</h2>
+                <p>The information collected by Google AdMob through our Application is primarily used for the following
+                    purposes:</p>
+                <ul>
+                    <li>To display advertisements within the Application.</li>
+                    <li>To personalize the advertising content you see (if you have consented to personalized ads or not
+                        opted out, depending on your region and device settings).</li>
+                    <li>To measure the effectiveness and reach of advertising campaigns.</li>
+                    <li>To improve AdMob's services, including fraud prevention and ensuring the security of ad serving.
+                    </li>
+                </ul>
+
+                <h2>4. Location Information</h2>
+                <p>This Application does not itself actively request or collect precise real-time location information
+                    (e.g., GPS data) from your device. However, our advertising partner, Google AdMob, may infer your
+                    general location from your IP address to serve more relevant ads or for their analytical purposes,
+                    as described in their privacy policies.</p>
+
+                <h2>5. Sharing of Information</h2>
+                <ul>
+                    <li><strong>EduLingua:</strong> We do not directly collect personal information from you, and
+                        therefore, we do not share such information with third parties.</li>
+                    <li><strong>Google AdMob:</strong> Google AdMob operates under its own privacy policy regarding the
+                        data it collects and may share it with its partners as described therein. We recommend you
+                        review AdMob's privacy policy (linked in Section 2) for details.</li>
+                    <li><strong>Legal Requirements:</strong> We may disclose information if required to do so by law or
+                        in the good faith belief that such action is necessary to: (a) comply with a legal obligation;
+                        (b) protect and defend our rights or property; (c) prevent or investigate possible wrongdoing in
+                        connection with the Application; (d) protect the personal safety of users of the Application or
+                        the public; or (e) protect against legal liability.</li>
+                </ul>
+
+                <h2>6. Your Choices and Rights Regarding Advertising</h2>
+                <p>You have choices regarding the collection and use of your information for personalized advertising:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Opting Out of Personalized Advertising:</strong> You can typically limit ad tracking or
+                        opt out of personalized advertising through your mobile device's settings.
+                        <ul>
+                            <li><strong>For Android devices:</strong> Navigate to Settings > Google > Ads (or Privacy >
+                                Ads) and adjust settings like "Opt out of Ads Personalization" or "Delete advertising
+                                ID."</li>
+                            <li><strong>For iOS devices:</strong> Navigate to Settings > Privacy & Security > Tracking
+                                (ensure "Allow Apps to Request to Track" is off for this app if prompted) or Settings >
+                                Privacy & Security > Apple Advertising and adjust "Personalized Ads."</li>
+                        </ul>
+                        <em>(The exact path may vary slightly depending on your device and OS version.)</em>
+                        <p>Opting out of personalized ads does not mean you will no longer see ads; it means the ads
+                            displayed may be less relevant to your interests.</p>
+                    </li>
+                    <li>
+                        <strong>Users in the European Economic Area (EEA), UK, and Switzerland:</strong>
+                        <p>Google AdMob is required to comply with Google's EU User Consent Policy. When you first use
+                            the Application, or as required by AdMob, you should be presented with a consent mechanism
+                            (often through a Consent Management Platform - CMP) regarding the collection and use of your
+                            data for personalized advertising. You have the right to manage and withdraw your consent
+                            through such mechanisms.</p>
+                        <p>You also have rights under the General Data Protection Regulation (GDPR) or equivalent local
+                            laws, including:</p>
+                        <ul>
+                            <li>The right to access your personal data.</li>
+                            <li>The right to rectify inaccurate personal data.</li>
+                            <li>The right to request erasure of your personal data.</li>
+                            <li>The right to restrict the processing of your personal data.</li>
+                            <li>The right to data portability.</li>
+                            <li>The right to object to the processing of your personal data.</li>
+                        </ul>
+                        <p>To exercise these rights with respect to data collected by AdMob, you should typically
+                            contact Google directly as per their privacy policy. You can also contact us at [your
+                            laxeneo@gmail.com email] for guidance on how to reach Google or if you have general privacy
+                            questions about our Application.</p>
+                    </li>
+                </ul>
+
+                <h2>7. Data Retention</h2>
+                <ul>
+                    <li><strong>EduLingua:</strong> As we do not directly collect or store your personally identifiable
+                        information, we do not have specific retention policies for it.</li>
+                    <li><strong>Google AdMob:</strong> Data collected by Google AdMob is subject to Google's own data
+                        retention policies. Please refer to Google's privacy policies for details.</li>
+                    <li>Any aggregated or anonymized usage statistics that we might view through AdMob's dashboard
+                        (which do not identify you personally) are used by us to understand app usage trends and improve
+                        the Application.</li>
+                </ul>
+
+                <h2>8. Children's Privacy</h2>
+                <p>This Application is not intended for or directed at children under the age of 13 (or a higher age
+                    threshold as required by applicable local laws, e.g., 16 in some parts of the EU for GDPR consent).
+                    We do not knowingly collect any personally identifiable information from children. If you are a
+                    parent or guardian and you believe that your child has provided us with information without your
+                    consent, please contact us at [your laxeneo@gmail.com email]. If we become aware that information
+                    has been collected from a child without verification of parental consent, we will take steps to
+                    remove that information or request its removal by our partners.</p>
+
+                <h2>9. Security</h2>
+                <p>We are committed to ensuring that your information is handled responsibly. While we do not directly
+                    collect or store your personal data, we rely on the security measures implemented by Google AdMob
+                    and your mobile device's operating system. Please understand that no method of transmission over the
+                    internet or method of electronic storage is 100% secure.</p>
+
+                <h2>10. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the
+                    new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to
+                    review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are
+                    effective when they are posted on this page. Your continued use of the Application after any changes
+                    or revisions to this Privacy Policy shall indicate your agreement with the terms of such revised
+                    Privacy Policy.</p>
+
+                <div class="contact-info">
+                    <h2>11. Contact Us</h2>
+                    <p>If you have any questions or suggestions about our Privacy Policy, or if you have any concerns
+                        about your privacy while using the Application, please do not hesitate to contact us:</p>
+                    <p>
+                        EduLingua<br>
+                        Email: laxeneo@gmail.com
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -607,15 +743,15 @@
         // Mobile Navigation
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-        
+
         if (hamburger && navMenu) {
             hamburger.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
-                hamburger.innerHTML = navMenu.classList.contains('active') ? 
-                    '<i class="fas fa-times"></i>' : 
+                hamburger.innerHTML = navMenu.classList.contains('active') ?
+                    '<i class="fas fa-times"></i>' :
                     '<i class="fas fa-bars"></i>';
             });
-            
+
             // Close menu when clicking on a link
             document.querySelectorAll('.nav-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -626,4 +762,5 @@
         }
     </script>
 </body>
+
 </html>
