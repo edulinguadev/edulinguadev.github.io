@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Request - EduLingua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-purple: #483D8B;
+            --light-purple: #E6E6FA;
+            --medium-purple: #D8BFD8;
+            --light-gray: #D3D3D3;
+            --medium-gray: #A9A9A9;
+            --dark-gray: #808080;
+            --white: #FFFFFF;
+            --pastel-blue: #ADD8E6;
+            --pastel-pink: #FFB6C1;
+            --pastel-purple: #D8BFD8;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--white), var(--light-purple), var(--medium-purple));
+            color: var(--deep-purple);
+            line-height: 1.6;
+            font-size: 18px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--deep-purple);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--deep-purple);
+        }
+        
+        .btn {
+            background-color: var(--deep-purple);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(72, 61, 139, 0.3);
+        }
+        
+        /* Updated Navigation order */
+        .nav-order-1 { order: 1; }
+        .nav-order-2 { order: 2; }
+        .nav-order-3 { order: 3; }
+        .nav-order-4 { order: 4; }
+        
+        /* Flag styles for consistency */
+        .flag-small {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+            background-size: cover;
+            margin-right: 5px;
+        }
+        
+        .flag-germany {
+            background-image: url('https://flagcdn.com/w80/de.png');
+        }
+        
+        .flag-spain {
+            background-image: url('https://flagcdn.com/w80/es.png');
+        }
+        
+        .flag-france {
+            background-image: url('https://flagcdn.com/w80/fr.png');
+            background-position: center;
+            background-size: 150%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background-color: var(--pastel-purple);
+            top: -100px;
+            right: -100px;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--pastel-blue);
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s infinite ease-in-out reverse;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 50px 0 100px;
+        }
+        
+        .policy-container {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .policy-container h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: var(--deep-purple);
+        }
+        
+        .policy-container h3 {
+            font-size: 22px;
+            margin: 30px 0 15px;
+            color: var(--deep-purple);
+        }
+        
+        .policy-container p {
+            margin-bottom: 20px;
+        }
+        
+        .policy-date {
+            color: var(--medium-gray);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .placeholder {
+            text-align: center;
+            padding: 50px 20px;
+            margin: 30px 0;
+            border: 2px dashed var(--medium-purple);
+            border-radius: 10px;
+            background-color: rgba(216, 191, 216, 0.1);
+            position: relative;
+        }
+        
+        .placeholder i {
+            font-size: 60px;
+            color: var(--deep-purple);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .placeholder h3 {
+            margin-bottom: 15px;
+        }
+        
+        .policy-list {
+            margin: 20px 0 30px 20px;
+            list-style: none;
+        }
+        
+        .policy-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .policy-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--medium-purple);
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--deep-purple);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        /* Email link styling */
+        .email-link {
+            background-color: var(--deep-purple);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .email-link:hover {
+            background-color: var(--medium-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(72, 61, 139, 0.3);
+        }
+        
+        .highlight-box {
+            background-color: rgba(216, 191, 216, 0.1);
+            border-left: 4px solid var(--deep-purple);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-purple);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-col h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--medium-purple);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--light-purple);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+        
+        /* Social Links Fix */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--deep-purple);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                padding: 150px 0 50px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .policy-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="src/logo_edulingua.png" alt="EduLingua Logo">
+            </a>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-order-1"><a href="index.html#values">Features</a></li>
+                    <li class="nav-order-2"><a href="index.html#apps">Our Apps</a></li>
+                    <li class="nav-order-3"><a href="index.html#testimonials">Testimonials</a></li>
+                    <li class="nav-order-4"><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>        <div class="container">
+            <h1>Data Deletion Request</h1>
+            <p>Information on how to request guidance regarding data deletion for the Prüfungsweg für Telc C1 HS application</p>
+            <a href="index.html" class="btn">
+                <i class="fas fa-home"></i>Back to Home
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content">
+        <div class="container">
+            <div class="policy-container">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Home
+                </a>                
+                <h2>Data Deletion Request - Prüfungsweg für Telc C1 HS App</h2>
+                
+                <p>This page provides information on how to request guidance regarding data deletion for the Prüfungsweg für Telc C1 HS application provided by EduLingua.</p>                <h3>Our Data Practices</h3>
+                <p>The Prüfungsweg für Telc C1 HS application is ad-supported and uses Google AdMob to display advertisements. EduLingua does not directly collect or store any personally identifiable information from users of the Application. We do not require user registration.</p>
+                
+                <p>Data collection for advertising purposes is handled by Google AdMob, as detailed in our <a href="privacy.html" style="color: var(--deep-purple); font-weight: 600;">Privacy Policy</a>.</p>
+
+                <h3>How to Request Guidance on Data Deletion</h3>
+                <p>While EduLingua does not directly store your personal data, data is collected by our advertising partner, Google AdMob, to provide advertisements. If you wish to understand how to manage your ad preferences (such as opting out of personalized ads by resetting your advertising ID) or request guidance on data deletion related to AdMob services used through our app, please contact us.</p>
+                  <div class="highlight-box">
+                    <p><strong>Please send an email to:</strong></p>
+                    <a href="mailto:laxeneo@gmail.com?subject=Data Deletion Request - Prüfungsweg für Telc C1 HS App" class="email-link">
+                        <i class="fas fa-envelope"></i> laxeneo@gmail.com
+                    </a>
+                    
+                    <p style="margin-top: 15px;"><strong>Subject Line:</strong> Data Deletion Request - Prüfungsweg für Telc C1 HS App</p>
+                    <p style="font-size: 16px; color: var(--medium-gray);">Please include this exact subject line so we can best assist you.</p>
+                </div>
+
+                <h3>Additional Information</h3>
+                <p>You can also refer to our main <a href="privacy.html" style="color: var(--deep-purple); font-weight: 600;">Privacy Policy</a> for more information on user rights and how data is handled by third-party services.</p>
+
+                <h3>What to Include in Your Request</h3>                <ul class="policy-list">
+                    <li>Clear identification that you are requesting guidance on data deletion</li>
+                    <li>The name of the app (Prüfungsweg für Telc C1 HS)</li>
+                    <li>Any specific concerns or questions you have about data handling</li>
+                    <li>Your preferred method of response</li>
+                </ul>
+
+                <p style="margin-top: 30px;"><strong>Response Time:</strong> We typically respond to data deletion guidance requests within 2-3 business days.</p>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>EduLingua</h4>
+                    <p>Innovative language learning apps that transform the way you master new languages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#values">Features</a></li>
+                        <li><a href="index.html#apps">Our Apps</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="data-deletion.html">Data Deletion</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduLingua. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
